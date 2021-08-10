@@ -22,7 +22,7 @@ server.post('/house', upload.array('image', 4), async (req, res, next) => {
             res.status(500).json({ status: 'failed', payload: null, message: fileErr });
         } else {
             files.forEach(file => {
-                console.log("Received file " + file.originalname);
+                // console.log("Received file " + file.originalname);
                 var src = fs.createReadStream(file.path);
                 var dest = fs.createWriteStream('uploads/' + file.originalname);
                 src.pipe(dest);
